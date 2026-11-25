@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ReLife Backend Test</title>
+</head>
+
+<body>
+
+    <h1>ReLife – Supabase Connection</h1>
+
+    <p id="status">Testing connection...</p>
+
+    <script type="module">
+        import {
+            testSupabaseConnection
+        } from "./js/backend/testConnection.js";
+
+        const status = document.getElementById("status");
+
+        const result = await testSupabaseConnection();
+
+        status.textContent = result.message;
+
+        status.style.color = result.success
+            ? "green"
+            : "red";
+    </script>
+
+</body>
+</html>
