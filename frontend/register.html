@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register | ReLife</title>
     <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js" defer></script>
   </head>
   <body>
     <main class="auth-page">
@@ -22,6 +23,24 @@
               id="name"
               placeholder="Enter your full name"
               required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="accountType">Account Type</label>
+            <select id="accountType" required>
+              <option value="">Select account type</option>
+              <option value="individual">Individual</option>
+              <option value="organization">Organization</option>
+            </select>
+          </div>
+
+          <div class="form-group" id="organizationGroup" style="display: none">
+            <label for="organizationName">Organization Name</label>
+            <input
+              type="text"
+              id="organizationName"
+              placeholder="Enter organization name"
             />
           </div>
 

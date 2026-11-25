@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marketplace | ReLife</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="marketplace-navbar">
+      <a href="index.html" class="logo">♻ Re<span>Life</span></a>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="marketplace.html" class="active">Marketplace</a>
+        <a href="login.html">Login</a>
+      </nav>
+
+      <a href="login.html" class="marketplace-list-btn">+ List an Item</a>
+    </header>
+
+    <!-- Marketplace Header -->
+    <main class="marketplace-container">
+      <section class="marketplace-heading">
+        <h1>Discover Something <span>Reusable</span></h1>
+        <p>
+          Buy, exchange or donate products. Give useful things a second life.
+        </p>
+
+        <div class="marketplace-search">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search for products..."
+          />
+          <button type="button" id="searchButton">Search</button>
+        </div>
+      </section>
+
+      <!-- Categories -->
+      <section class="marketplace-categories">
+        <h2>Browse Categories</h2>
+
+        <div class="category-filters">
+          <button class="category-filter active" data-category="all">
+            All
+          </button>
+          <button class="category-filter" data-category="electronics">
+            Electronics
+          </button>
+          <button class="category-filter" data-category="clothing">
+            Clothing
+          </button>
+          <button class="category-filter" data-category="furniture">
+            Furniture
+          </button>
+          <button class="category-filter" data-category="books">Books</button>
+          <button class="category-filter" data-category="sports">Sports</button>
+          <button class="category-filter" data-category="others">Others</button>
+        </div>
+      </section>
+
+      <!-- Product Listings -->
+      <section class="marketplace-products">
+        <div class="products-heading">
+          <h2>Available Products</h2>
+          <p>Explore items shared by the community</p>
+        </div>
+
+        <div class="product-grid" id="productGrid">
+          <!-- Product 1 -->
+          <article class="product-card" data-category="electronics">
+            <div class="product-image">📱</div>
+            <div class="product-details">
+              <span class="product-mode">For Sale</span>
+              <h3>Smartphone</h3>
+              <p class="product-price">₹5,000</p>
+              <p class="product-condition">Condition: Good</p>
+              <p class="product-location">📍 Bengaluru</p>
+              <p class="seller-name">Seller: Rahul</p>
+              <a href="login.html" class="product-contact">Contact Seller</a>
+            </div>
+          </article>
+
+          <!-- Product 2 -->
+          <article class="product-card" data-category="furniture">
+            <div class="product-image">🪑</div>
+            <div class="product-details">
+              <span class="product-mode exchange">Exchange</span>
+              <h3>Study Chair</h3>
+              <p class="product-price">Exchange Offer</p>
+              <p class="product-condition">Condition: Very Good</p>
+              <p class="product-location">📍 Mysuru</p>
+              <p class="seller-name">Seller: Priya</p>
+              <a href="login.html" class="product-contact">Contact Seller</a>
+            </div>
+          </article>
+
+          <!-- Product 3 -->
+          <article class="product-card" data-category="books">
+            <div class="product-image">📚</div>
+            <div class="product-details">
+              <span class="product-mode donate">Free Donation</span>
+              <h3>Engineering Books</h3>
+              <p class="product-price">Free</p>
+              <p class="product-condition">Condition: Good</p>
+              <p class="product-location">📍 Hubballi</p>
+              <p class="seller-name">Seller: Arjun</p>
+              <a href="login.html" class="product-contact">Contact Seller</a>
+            </div>
+          </article>
+
+          <!-- Product 4 -->
+          <article class="product-card" data-category="clothing">
+            <div class="product-image">👕</div>
+            <div class="product-details">
+              <span class="product-mode">For Sale</span>
+              <h3>Casual T-Shirt</h3>
+              <p class="product-price">₹250</p>
+              <p class="product-condition">Condition: Like New</p>
+              <p class="product-location">📍 Bengaluru</p>
+              <p class="seller-name">Seller: Sneha</p>
+              <a href="login.html" class="product-contact">Contact Seller</a>
+            </div>
+          </article>
+
+          <!-- Product 5 -->
+          <article class="product-card" data-category="sports">
+            <div class="product-image">🏏</div>
+            <div class="product-details">
+              <span class="product-mode donate">Free Donation</span>
+              <h3>Cricket Bat</h3>
+              <p class="product-price">Free</p>
+              <p class="product-condition">Condition: Used</p>
+              <p class="product-location">📍 Tumakuru</p>
+              <p class="seller-name">Seller: Kiran</p>
+              <a href="login.html" class="product-contact">Contact Seller</a>
+            </div>
+          </article>
+
+          <!-- Product 6 -->
+          <article class="product-card" data-category="others">
+            <div class="product-image">🎒</div>
+            <div class="product-details">
+              <span class="product-mode">For Sale</span>
+              <h3>Travel Backpack</h3>
+              <p class="product-price">₹400</p>
+              <p class="product-condition">Condition: Good</p>
+              <p class="product-location">📍 Mangaluru</p>
+              <p class="seller-name">Seller: Aditya</p>
+              <a href="login.html" class="product-contact">Contact Seller</a>
+            </div>
+          </article>
+        </div>
+
+        <p id="noProductsMessage" class="no-products" hidden>
+          No products found. Try another search or category.
+        </p>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="marketplace-footer">
+      <p>© 2026 ReLife. Give products a second life.</p>
+    </footer>
+    <script src="js/script.js"></script>
+  </body>
+</html>
