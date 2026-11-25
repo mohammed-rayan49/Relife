@@ -129,4 +129,59 @@ document.addEventListener("DOMContentLoaded", function () {
 
     filterProducts();
   }
+
+  // Product Details: Save selected product from Marketplace
+  const productLinks = document.querySelectorAll(
+    ".product-card .product-title-link",
+  );
+
+  productLinks.forEach(function (link) {
+    link.addEventListener("click", function () {
+      const card = link.closest(".product-card");
+
+      const product = {
+        id: new URL(link.href).searchParams.get("product"),
+        name: link.textContent.trim(),
+        image: card.querySelector(".product-image")?.textContent.trim() || "",
+        mode: card.querySelector(".product-mode")?.textContent.trim() || "",
+        price: card.querySelector(".product-price")?.textContent.trim() || "",
+        condition:
+          card.querySelector(".product-condition")?.textContent.trim() || "",
+        location:
+          card.querySelector(".product-location")?.textContent.trim() || "",
+        seller: card.querySelector(".seller-name")?.textContent.trim() || "",
+      };
+
+      localStorage.setItem("relifeSelectedProduct", JSON.stringify(product));
+    });
+  });
+
+  // Product Details: Display selected product
+  const detailName = document.getElementById("detailName");
+
+  if (detailName) {
+    const savedProduct = localStorage.getItem("relifeSelectedProduct");
+    const productId = new URLSearchParams(window.location.search).get(
+      "product",
+    );
+
+    if (savedProduct) {
+      const product = JSON.parse(savedProduct);
+
+      if (product.id === productId) {
+        document.getElementById("detailImage").textContent = product.image;
+        detailName.textContent = product.name;
+        document.getElementById("detailMode").textContent = product.mode;
+        document.getElementById("detailPrice").textContent = product.price;
+        document.getElementById("detailCondition").textContent =
+          product.condition;
+        document.getElementById("detailLocation").textContent =
+          product.location;
+        document.getElementById("detailSeller").textContent = product.seller;
+
+        document.getElementById("detailDescription").textContent =
+          "Contact the owner for more information about this item.";
+      }
+    }
+  }
 });
