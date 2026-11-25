@@ -22,6 +22,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const searchButton = document.getElementById("searchButton");
   const categoryButtons = document.querySelectorAll(".category-filter");
   const productCards = document.querySelectorAll(".product-card");
+  const sortSelect = document.getElementById("sortSelect");
+  const productGrid = document.getElementById("productGrid");
+
+  const originalProductOrder = Array.from(productCards);
   const noProductsMessage = document.getElementById("noProductsMessage");
 
   if (searchInput && searchButton && productCards.length > 0) {
@@ -84,6 +88,45 @@ document.addEventListener("DOMContentLoaded", function () {
         filterProducts();
       });
     });
+
+    // Marketplace: Product sorting
+    function sortProducts() {
+      const sortValue = sortSelect.value;
+      const sortedProducts = [...originalProductOrder];
+
+      if (sortValue === "low-high") {
+        sortedProducts.sort(function (a, b) {
+          const priceA = a.dataset.price;
+          const priceB = b.dataset.price;
+
+          if (priceA === "") return 1;
+          if (priceB === "") return -1;
+
+          return Number(priceA) - Number(priceB);
+        });
+      } else if (sortValue === "high-low") {
+        sortedProducts.sort(function (a, b) {
+          const priceA = a.dataset.price;
+          const priceB = b.dataset.price;
+
+          if (priceA === "") return 1;
+          if (priceB === "") return -1;
+
+          return Number(priceB) - Number(priceA);
+        });
+      }
+
+      sortedProducts.forEach(function (card) {
+        productGrid.appendChild(card);
+      });
+
+      filterProducts();
+    }
+
+    if (sortSelect && productGrid) {
+      sortSelect.addEventListener("change", sortProducts);
+    }
+
     filterProducts();
   }
 });

@@ -64,13 +64,24 @@
       <!-- Product Listings -->
       <section class="marketplace-products">
         <div class="products-heading">
-          <h2>Available Products</h2>
-          <p>Explore items shared by the community</p>
-        </div>
+          <div>
+            <h2>Available Products</h2>
+            <p>Explore items shared by the community</p>
+          </div>
 
+          <select id="sortSelect">
+            <option value="default">Default Order</option>
+            <option value="low-high">Price: Low to High</option>
+            <option value="high-low">Price: High to Low</option>
+          </select>
+        </div>
         <div class="product-grid" id="productGrid">
           <!-- Product 1 -->
-          <article class="product-card" data-category="electronics">
+          <article
+            class="product-card"
+            data-category="electronics"
+            data-price="5000"
+          >
             <div class="product-image">📱</div>
             <div class="product-details">
               <span class="product-mode">For Sale</span>
@@ -84,7 +95,7 @@
           </article>
 
           <!-- Product 2 -->
-          <article class="product-card" data-category="furniture">
+          <article class="product-card" data-category="furniture" data-price="">
             <div class="product-image">🪑</div>
             <div class="product-details">
               <span class="product-mode exchange">Exchange</span>
@@ -98,7 +109,7 @@
           </article>
 
           <!-- Product 3 -->
-          <article class="product-card" data-category="books">
+          <article class="product-card" data-category="books" data-price="0">
             <div class="product-image">📚</div>
             <div class="product-details">
               <span class="product-mode donate">Free Donation</span>
@@ -112,7 +123,11 @@
           </article>
 
           <!-- Product 4 -->
-          <article class="product-card" data-category="clothing">
+          <article
+            class="product-card"
+            data-category="clothing"
+            data-price="250"
+          >
             <div class="product-image">👕</div>
             <div class="product-details">
               <span class="product-mode">For Sale</span>
@@ -126,7 +141,7 @@
           </article>
 
           <!-- Product 5 -->
-          <article class="product-card" data-category="sports">
+          <article class="product-card" data-category="sports" data-price="0">
             <div class="product-image">🏏</div>
             <div class="product-details">
               <span class="product-mode donate">Free Donation</span>
@@ -140,7 +155,7 @@
           </article>
 
           <!-- Product 6 -->
-          <article class="product-card" data-category="others">
+          <article class="product-card" data-category="others" data-price="400">
             <div class="product-image">🎒</div>
             <div class="product-details">
               <span class="product-mode">For Sale</span>
