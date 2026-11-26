@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Details | ReLife</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>ReLife</h1>
+      <a href="marketplace.html">Back to Marketplace</a>
+    </header>
+
+    <main class="product-details-page">
+      <div class="product-detail-image" id="detailImage">📱</div>
+
+      <div class="product-detail-info">
+        <span id="detailMode">For Sale</span>
+        <h2 id="detailName">Smartphone</h2>
+        <p id="detailPrice">₹5,000</p>
+        <p id="detailCondition">Condition: Good</p>
+        <p id="detailLocation">📍 Bengaluru</p>
+        <p id="detailSeller">Seller: Rahul</p>
+
+        <p id="detailDescription">
+          A good quality smartphone available for reuse.
+        </p>
+
+        <button type="button" class="product-contact" id="requestItemButton">
+          Request Item
+        </button>
+
+        <form id="requestForm" hidden>
+          <h3>Send Request to Owner</h3>
+
+          <label for="requestMessage">Your Message</label>
+
+          <textarea
+            id="requestMessage"
+            rows="4"
+            placeholder="Hi, I am interested in this item. Is it available?"
+            required
+          ></textarea>
+
+          <button type="submit" class="product-contact">Submit Request</button>
+        </form>
+        <p id="requestConfirmation" hidden>
+          Your request has been submitted successfully!
+        </p>
+      </div>
+    </main>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
