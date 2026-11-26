@@ -27,7 +27,27 @@
           A good quality smartphone available for reuse.
         </p>
 
-        <a href="login.html" class="product-contact"> Request Item </a>
+        <button type="button" class="product-contact" id="requestItemButton">
+          Request Item
+        </button>
+
+        <form id="requestForm" hidden>
+          <h3>Send Request to Owner</h3>
+
+          <label for="requestMessage">Your Message</label>
+
+          <textarea
+            id="requestMessage"
+            rows="4"
+            placeholder="Hi, I am interested in this item. Is it available?"
+            required
+          ></textarea>
+
+          <button type="submit" class="product-contact">Submit Request</button>
+        </form>
+        <p id="requestConfirmation" hidden>
+          Your request has been submitted successfully!
+        </p>
       </div>
     </main>
 

@@ -44,7 +44,8 @@ document.addEventListener("DOMContentLoaded", function () {
       let visibleProducts = 0;
 
       productCards.forEach(function (card) {
-        const productName = card.querySelector("h3").textContent.toLowerCase();
+        const productName =
+          card.querySelector("h3")?.textContent.toLowerCase() || "";
 
         const description =
           card.querySelector("p")?.textContent.toLowerCase() || "";
@@ -139,9 +140,14 @@ document.addEventListener("DOMContentLoaded", function () {
     link.addEventListener("click", function () {
       const card = link.closest(".product-card");
 
+      if (!card) return;
+
       const product = {
         id: new URL(link.href).searchParams.get("product"),
-        name: link.textContent.trim(),
+        name:
+          card.querySelector("h3")?.textContent.trim() ||
+          card.querySelector(".product-title-link")?.textContent.trim() ||
+          "Unknown Product",
         image: card.querySelector(".product-image")?.textContent.trim() || "",
         mode: card.querySelector(".product-mode")?.textContent.trim() || "",
         price: card.querySelector(".product-price")?.textContent.trim() || "",
@@ -178,10 +184,34 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("detailLocation").textContent =
           product.location;
         document.getElementById("detailSeller").textContent = product.seller;
-
         document.getElementById("detailDescription").textContent =
           "Contact the owner for more information about this item.";
+      } else {
+        detailName.textContent = "Product details not found";
       }
+    } else {
+      detailName.textContent = "Product details not found";
     }
+  }
+
+  // Request Item: Show request form
+  const requestItemButton = document.getElementById("requestItemButton");
+  const requestForm = document.getElementById("requestForm");
+  const requestConfirmation = document.getElementById("requestConfirmation");
+
+  if (requestItemButton && requestForm) {
+    requestItemButton.addEventListener("click", function () {
+      requestForm.hidden = false;
+      requestItemButton.hidden = true;
+    });
+
+    // Handle request submission without reloading the page
+
+    requestForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      requestForm.hidden = true;
+      requestConfirmation.hidden = false;
+    });
   }
 });
