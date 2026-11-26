@@ -215,3 +215,43 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+// Post an Item Form
+const postItemForm = document.getElementById("postItemForm");
+
+if (postItemForm) {
+  postItemForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const listingType = document.getElementById("listingType").value;
+    const price = document.getElementById("itemPrice").value;
+
+    if (listingType === "affordable" && (!price || Number(price) <= 0)) {
+      alert("Please enter a valid price for an affordable item.");
+      return;
+    }
+
+    if (listingType !== "affordable" && price !== "" && Number(price) < 0) {
+      alert("Price cannot be negative.");
+      return;
+    }
+
+    document.getElementById("postItemMessage").textContent =
+      "Your item form is ready! Backend integration is coming soon.";
+
+    document.getElementById("postItemMessage").hidden = false;
+  });
+}
+// Post a Need Form
+const postNeedForm = document.getElementById("postNeedForm");
+
+if (postNeedForm) {
+  postNeedForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    document.getElementById("postNeedMessage").textContent =
+      "Your need has been submitted! Backend integration is coming soon.";
+
+    document.getElementById("postNeedMessage").hidden = false;
+  });
+}

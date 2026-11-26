@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post an Item | ReLife</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="index.html" class="logo">
+        ♻ Re<span class="logo-highlight">Life</span>
+      </a>
+      <a href="marketplace.html" class="login-btn">Marketplace</a>
+    </header>
+
+    <main class="section">
+      <div class="section-heading">
+        <span class="eyebrow">GIVE IT A SECOND LIFE</span>
+        <h2>Post an Item</h2>
+        <p>Share something useful with your community.</p>
+      </div>
+
+      <form id="postItemForm">
+        <label for="itemName">Product Name</label>
+        <input
+          type="text"
+          id="itemName"
+          required
+          placeholder="e.g. Study Table"
+        />
+
+        <label for="itemDescription">Description</label>
+        <textarea
+          id="itemDescription"
+          required
+          placeholder="Describe your product"
+        ></textarea>
+
+        <label for="itemCategory">Category</label>
+        <select id="itemCategory" required>
+          <option value="">Select Category</option>
+          <option value="electronics">Electronics</option>
+          <option value="clothing">Clothing</option>
+          <option value="furniture">Furniture</option>
+          <option value="books">Books</option>
+          <option value="sports">Sports</option>
+          <option value="others">Others</option>
+        </select>
+
+        <label for="listingType">Listing Type</label>
+        <select id="listingType" required>
+          <option value="">Select Type</option>
+          <option value="free">Free / Donate</option>
+          <option value="exchange">Exchange</option>
+          <option value="affordable">Affordable</option>
+        </select>
+
+        <label for="itemPrice">Price (₹)</label>
+        <input
+          type="number"
+          id="itemPrice"
+          min="0"
+          placeholder="Enter price if applicable"
+        />
+
+        <label for="itemCondition">Condition</label>
+        <select id="itemCondition" required>
+          <option value="">Select Condition</option>
+          <option value="new">New</option>
+          <option value="like-new">Like New</option>
+          <option value="good">Good</option>
+          <option value="fair">Fair</option>
+        </select>
+
+        <label for="itemLocation">Location</label>
+        <input
+          type="text"
+          id="itemLocation"
+          required
+          placeholder="Enter your city or area"
+        />
+
+        <label for="itemImage">Product Image</label>
+        <input type="file" id="itemImage" accept="image/*" />
+
+        <button type="submit" class="primary-btn">Post Item</button>
+
+        <p id="postItemMessage" hidden></p>
+      </form>
+    </main>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
